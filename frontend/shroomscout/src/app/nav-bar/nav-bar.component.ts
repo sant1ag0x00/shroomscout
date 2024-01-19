@@ -9,4 +9,8 @@ export class NavBarComponent {
   public onRegisterMushroomClick() {
     console.log('"Register Mushroom" button clicked!');
   }
+
+  public onLogoTitleClick() {
+    console.log('Logo or title clicked!');
+  }
 }

@@ -1,26 +1,19 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <!-- Logo -->
-  <a
-    class="navbar-brand mb-0 h1"
-    style="margin-left: 20px; font-size: xx-large"
-  >
-    <img
-      src="\assets\images\logo.png"
-      style="margin-right: 10px"
-      height="80"
-      alt="Logo"
-    />
-    Shroom Scout
-  </a>
+<!-- Navigation Bar -->
+<mat-toolbar color="primary">
+  <!-- Logo & Title on the Left -->
+  <div class="logo-title" (click)="onLogoTitleClick()">
+    <img src="\assets\images\logo.png" alt="Logo" class="logo" />
+    <span class="title">Shroom Scout</span>
+  </div>
 
-  <!-- 'Register Mushroom' Button -->
-  <form class="form-inline ms-auto" style="margin-right: 20px">
+  <!-- Register Mushroom Button on the Right -->
+  <div class="button-container">
     <button
-      class="btn btn-primary btn-lg btn-light"
-      type="button"
+      mat-raised-button
+      color="accent"
       (click)="onRegisterMushroomClick()"
     >
       Register Mushroom
     </button>
-  </form>
-</nav>
+  </div>
+</mat-toolbar>
