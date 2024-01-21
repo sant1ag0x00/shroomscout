@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -6,11 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent {
+  constructor(private router: Router) {}
+
   public onRegisterMushroomClick() {
-    console.log('"Register Mushroom" button clicked!');
+    this.router.navigate(['/register']);
   }
 
   public onLogoTitleClick() {
-    console.log('Logo or title clicked!');
+    this.router.navigate(['']);
   }
 }
