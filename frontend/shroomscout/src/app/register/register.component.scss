@@ -1,0 +1,23 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5vh;
+  margin-left: 4.5vw;
+}
+
+h2 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+  font-family: "Roboto", sans-serif;
+}
+
+mat-form-field {
+  width: 30vw;
+}
+
+button {
+  width: 30vw;
+}

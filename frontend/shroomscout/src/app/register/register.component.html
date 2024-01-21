@@ -1,1 +1,30 @@
-<p>register works!</p>
+<div class="form-container">
+  <h2>{{ title }}</h2>
+
+  <mat-form-field>
+    <input matInput placeholder="Name" [(ngModel)]="name" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Environment</mat-label>
+    <mat-select [(ngModel)]="selectedEnvironment">
+      <mat-option
+        *ngFor="let environment of environments"
+        [value]="environments"
+      >
+        {{ environment }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <img
+    *ngIf="pictureUrl"
+    [src]="pictureUrl"
+    alt="Preview"
+    class="preview-image"
+  />
+
+  <button mat-raised-button color="primary" (click)="onRegisterClick()">
+    Register
+  </button>
+</div>
