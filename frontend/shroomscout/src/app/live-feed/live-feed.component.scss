@@ -1,0 +1,22 @@
+mat-card {
+  width: 30vw;
+  height: 80vh;
+  margin-top: 5vh;
+  margin-left: 4.5vw;
+}
+
+h2 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+  font-family: "Roboto", sans-serif;
+  align-self: center;
+}
+
+mat-card-content {
+  height: 300px;
+  overflow-y: auto;
+  font-size: 1.5em;
+  color: #333;
+  font-family: "Roboto", sans-serif;
+}

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-register',
@@ -7,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private messageService: MessageService) {}
 
   title: string = 'Register a Mushroom:';
   name: string = '';
@@ -15,7 +16,8 @@ export class RegisterComponent {
   selectedEnvironment: string = '';
   pictureUrl: string = '';
 
-  onRegisterClick() {
+  public onRegisterClick() {
+    this.messageService.addMessage(this.name);
     this.router.navigate(['']);
   }
 }
