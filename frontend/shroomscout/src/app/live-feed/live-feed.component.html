@@ -1,1 +1,8 @@
-<p>live-feed works!</p>
+<mat-card>
+  <h2>[Live] Mushroom Mappings:</h2>
+  <mat-card-content>
+    <div *ngFor="let message of messages">
+      <p>{{ "> " + message }}</p>
+    </div>
+  </mat-card-content>
+</mat-card>
