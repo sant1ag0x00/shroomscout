@@ -8,3 +8,10 @@ iframe {
   height: 100%;
   border: none;
 }
+
+@media screen and (max-width: 600px) {
+  .iframe-container {
+    width: 100vw;
+    height: 50vh;
+  }
+}

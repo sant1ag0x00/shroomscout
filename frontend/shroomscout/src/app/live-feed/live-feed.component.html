@@ -1,8 +1,8 @@
 <mat-card>
-  <h2>[Live] Mushroom Mappings:</h2>
+  <h2>Recent Mushroom Mappings:</h2>
   <mat-card-content>
     <div *ngFor="let message of messages">
-      <p>{{ "> " + message }}</p>
+      <p *ngIf="message !== ''">{{ "> " + message }}</p>
     </div>
   </mat-card-content>
 </mat-card>

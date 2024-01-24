@@ -20,3 +20,13 @@ mat-card-content {
   color: #333;
   font-family: "Roboto", sans-serif;
 }
+
+@media screen and (max-width: 600px) {
+  mat-card {
+    width: 90vw;
+    height: 35vh;
+    margin-top: 2vh;
+    margin-left: 4.5vw;
+    margin-right: 4.5vw;
+  }
+}

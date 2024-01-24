@@ -27,3 +27,42 @@ button {
   padding: 25px 30px;
   margin-right: 10px;
 }
+
+// Responsive Styles for Width
+@media screen and (max-width: 700px) {
+  .logo {
+    width: 50px;
+  }
+
+  .title {
+    font-size: 1.2em;
+  }
+
+  button {
+    font-size: 0.8em;
+    padding: 10px 15px;
+  }
+
+  .mat-toolbar {
+    height: 8vh;
+  }
+}
+
+// Responsive Styles for Height
+@media screen and (max-height: 600px) {
+  .logo {
+    width: 60px; // Adjust logo size for smaller height
+  }
+
+  .title {
+    font-size: 1.2em; // Adjust title size for smaller height
+  }
+
+  button {
+    font-size: 0.8em; // Adjust button font size for smaller height
+  }
+
+  .mat-toolbar {
+    height: 10vh; // Adjust toolbar height for smaller height
+  }
+}
