@@ -1,9 +1,6 @@
-@import "~leaflet/dist/leaflet.css";
-
 #map {
   width: 60vw;
   height: 90vh;
-  border: none;
 }
 
 @media screen and (max-width: 600px) {
