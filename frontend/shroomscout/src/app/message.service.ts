@@ -5,12 +5,21 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class MessageService {
+  // Current messages
   private messages: string[] = [];
+  private messagesSubject$ = new BehaviorSubject<string[]>(this.messages);
 
-  public messages$ = new BehaviorSubject<string[]>(this.messages);
+  public messages$ = this.messagesSubject$.asObservable();
 
-  public addMessage(message: string) {
+  /**
+   * Emits the new message array from the messages$ stream.
+   *
+   * @param message New message to add.
+   *
+   * @returns void
+   */
+  public addMessage(message: string): void {
     this.messages.push(message);
-    this.messages$.next(this.messages);
+    this.messagesSubject$.next(this.messages);
   }
 }

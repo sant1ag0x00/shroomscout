@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,13 +7,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent {
-  constructor(private router: Router) {}
+  private router = inject(Router);
 
-  public onRegisterMushroomClick() {
+  protected onRegisterMushroomClick(): void {
     this.router.navigate(['/register']);
   }
 
-  public onLogoTitleClick() {
+  protected onLogoTitleClick(): void {
     this.router.navigate(['']);
   }
 }

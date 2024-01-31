@@ -1,3 +1,4 @@
+// Normal CSS styles
 .mat-toolbar {
   height: 10vh;
 }
@@ -26,4 +27,40 @@ button {
   font-size: 1em;
   padding: 25px 30px;
   margin-right: 10px;
+}
+
+// Responsive styles for reduced width
+@media screen and (max-width: 700px) {
+  .mat-toolbar {
+    height: 8vh;
+  }
+
+  .logo {
+    width: 50px;
+  }
+
+  .title {
+    font-size: 1.5em;
+  }
+
+  button {
+    font-size: 0.6em;
+    padding: 10px;
+  }
+}
+
+// Responsive styles for reduced height
+@media screen and (max-height: 600px) {
+  .mat-toolbar {
+    height: 60px;
+  }
+
+  .logo {
+    width: 60px;
+  }
+
+  button {
+    font-size: 0.6em;
+    padding: 10px;
+  }
 }
