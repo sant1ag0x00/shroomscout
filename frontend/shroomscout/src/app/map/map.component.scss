@@ -1,8 +1,10 @@
+// Normal CSS styles
 #map {
   width: 60vw;
   height: 90vh;
 }
 
+// Responsive styles for reduced width
 @media screen and (max-width: 600px) {
   #map {
     width: 100vw;

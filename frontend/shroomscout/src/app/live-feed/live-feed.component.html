@@ -1,7 +1,8 @@
 <mat-card>
   <h2>Recent Mushroom Mappings:</h2>
+  <!-- Display messages from component array -->
   <mat-card-content>
-    <div *ngFor="let message of messages">
+    <div *ngFor="let message of messages$ | async">
       <p *ngIf="message !== ''">{{ "> " + message }}</p>
     </div>
   </mat-card-content>

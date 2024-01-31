@@ -14,7 +14,7 @@ export class MapComponent implements OnInit {
   private map!: L.Map;
   private coordinatesSubject$ = new Subject<L.LatLng>();
 
-  public coordinates$ = this.coordinatesSubject$.asObservable();
+  protected coordinates$ = this.coordinatesSubject$.asObservable();
 
   ngOnInit() {
     // Initialize map to Berlin

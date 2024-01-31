@@ -1,10 +1,12 @@
 <mat-card>
   <h2>{{ title }}</h2>
 
+  <!-- Name input field -->
   <mat-form-field>
     <input matInput placeholder="Name" [(ngModel)]="name" />
   </mat-form-field>
 
+  <!-- Environment drop down list -->
   <mat-form-field>
     <mat-label>Environment</mat-label>
     <mat-select [(ngModel)]="selectedEnvironment">
@@ -17,6 +19,7 @@
     </mat-select>
   </mat-form-field>
 
+  <!-- Preview image -->
   <img
     *ngIf="pictureUrl"
     [src]="pictureUrl"
@@ -24,6 +27,7 @@
     class="preview-image"
   />
 
+  <!-- Register button -->
   <button mat-raised-button color="primary" (click)="onRegisterClick()">
     Register
   </button>

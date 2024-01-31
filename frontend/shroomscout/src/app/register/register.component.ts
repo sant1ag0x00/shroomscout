@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from '../message.service';
 
@@ -8,15 +8,17 @@ import { MessageService } from '../message.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  constructor(private router: Router, private messageService: MessageService) {}
+  private router = inject(Router);
+  private messageService = inject(MessageService);
 
-  title: string = 'Register a Mushroom:';
-  name: string = '';
-  environments: string[] = ['Wiese', 'Eiche', 'Buche'];
-  selectedEnvironment: string = '';
-  pictureUrl: string = '';
+  // Values for register form
+  protected title: string = 'Register a Mushroom:';
+  protected name: string = '';
+  protected environments: string[] = ['Wiese', 'Eiche', 'Buche'];
+  protected selectedEnvironment: string = '';
+  protected pictureUrl: string = '';
 
-  public onRegisterClick() {
+  protected onRegisterClick() {
     this.messageService.addMessage(this.name);
     this.router.navigate(['']);
   }

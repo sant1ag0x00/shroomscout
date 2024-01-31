@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, inject } from '@angular/core';
 import { MessageService } from '../message.service';
 
 @Component({
@@ -7,20 +6,8 @@ import { MessageService } from '../message.service';
   templateUrl: './live-feed.component.html',
   styleUrls: ['./live-feed.component.scss'],
 })
-export class LiveFeedComponent implements OnInit {
-  public messages: string[] = [];
+export class LiveFeedComponent {
+  private messageService = inject(MessageService);
 
-  private subscription: Subscription = new Subscription();
-
-  constructor(private messageService: MessageService) {}
-
-  ngOnInit() {
-    this.subscription = this.messageService.messages$.subscribe((messages) => {
-      this.messages = messages;
-    });
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+  protected messages$ = this.messageService.messages$;
 }
