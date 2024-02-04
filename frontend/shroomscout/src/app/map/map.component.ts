@@ -39,13 +39,29 @@ export class MapComponent implements OnInit {
         // If register view is open, add event listener for clicks
         if (event.url.endsWith('/register')) {
           this.map.on('click', (event: L.LeafletMouseEvent) => {
-            const coords = event.latlng;
+            const coords: L.LatLng = event.latlng;
+
+            const tooltipText: string = 'Steinpilz';
 
             // Only allow one marker at a time
             if (marker) {
               marker.setLatLng(coords);
+              marker
+                .bindTooltip(tooltipText, {
+                  permanent: false,
+                  direction: 'top',
+                  offset: L.point(-15, -15),
+                })
+                .openTooltip();
             } else {
               marker = L.marker(coords).addTo(this.map);
+              marker
+                .bindTooltip(tooltipText, {
+                  permanent: false,
+                  direction: 'top',
+                  offset: L.point(-15, -15),
+                })
+                .openTooltip();
             }
 
             this.coordinatesSubject$.next(coords);
