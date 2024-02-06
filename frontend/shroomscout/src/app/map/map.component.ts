@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import * as L from 'leaflet';
 import { Subject, filter } from 'rxjs';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-map',
@@ -10,6 +11,7 @@ import { Subject, filter } from 'rxjs';
 })
 export class MapComponent implements OnInit {
   private router = inject(Router);
+  private messageService = inject(MessageService);
 
   private map!: L.Map;
   private coordinatesSubject$ = new Subject<L.LatLng>();
@@ -17,6 +19,18 @@ export class MapComponent implements OnInit {
   protected coordinates$ = this.coordinatesSubject$.asObservable();
 
   ngOnInit() {
+    this.initializeMap();
+    this.handleMapClick('');
+
+    this.coordinates$.subscribe((coords) => {
+      console.log(coords);
+    });
+  }
+
+  /**
+   * Initializes the leaflet map to Berlin's coordinates and loads the actual map from OSM.
+   */
+  private initializeMap(): void {
     // Initialize map to Berlin
     this.map = L.map('map').setView([52.52, 13.405], 10);
 
@@ -26,7 +40,15 @@ export class MapComponent implements OnInit {
       attribution:
         '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     }).addTo(this.map);
+  }
 
+  /**
+   * Listenes for click events on the map and places a marker on the lastly clicked location,
+   * if the register form is open. Also displayes a text above the marker.
+   *
+   * @param tooltipText The text displayed above the current marker.
+   */
+  private handleMapClick(tooltipText: string): void {
     // Handle placing location marker on click
     let marker: L.Marker | null = null;
     this.router.events
@@ -40,8 +62,6 @@ export class MapComponent implements OnInit {
         if (event.url.endsWith('/register')) {
           this.map.on('click', (event: L.LeafletMouseEvent) => {
             const coords: L.LatLng = event.latlng;
-
-            const tooltipText: string = 'Steinpilz';
 
             // Only allow one marker at a time
             if (marker) {
@@ -72,9 +92,5 @@ export class MapComponent implements OnInit {
           this.map.off('click');
         }
       });
-
-    this.coordinates$.subscribe((coords) => {
-      console.log(coords);
-    });
   }
 }
