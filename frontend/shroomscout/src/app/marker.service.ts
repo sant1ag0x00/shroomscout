@@ -18,6 +18,10 @@ export class MarkerService {
     return this.markerPlaced;
   }
 
+  public setMarkerPlacedFalse(): void {
+    this.markerPlaced = false;
+  }
+
   /**
    * Places a marker on the last clicked location on the map.
    *
