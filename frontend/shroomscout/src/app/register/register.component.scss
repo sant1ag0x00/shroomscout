@@ -1,12 +1,13 @@
 // Normal CSS styles
 mat-card {
+  margin-top: 5vh;
+  margin-left: 2.5vw;
+  width: 35vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 5vh;
-  margin-left: 4.5vw;
-  width: 30vw;
+  text-align: center;
 }
 
 h2 {
@@ -17,10 +18,36 @@ h2 {
 }
 
 mat-form-field {
-  width: 25vw;
+  width: 30vw;
 }
 
 button {
-  width: 25vw;
+  width: 30vw;
   margin-bottom: 20px;
+}
+
+// Responsive styles for reduced width
+@media screen and (max-width: 600px) {
+  mat-card {
+    width: 90vw;
+    margin: 2vh 4.5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 2em;
+    color: #333;
+    margin: 10px 0px;
+    font-family: "Roboto", sans-serif;
+  }
+
+  mat-form-field,
+  button {
+    width: 85vw;
+    padding: 0 10px;
+  }
 }

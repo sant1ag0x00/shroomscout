@@ -5,10 +5,9 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class MessageService {
-  // Current messages
+  // All messages for the live feed component
   private messages: string[] = [];
   private messagesSubject$ = new BehaviorSubject<string[]>(this.messages);
-
   public messages$ = this.messagesSubject$.asObservable();
 
   /**
@@ -19,7 +18,7 @@ export class MessageService {
    * @returns void
    */
   public addMessage(message: string): void {
-    this.messages.push(message);
+    this.messages.unshift(message);
     this.messagesSubject$.next(this.messages);
   }
 }
