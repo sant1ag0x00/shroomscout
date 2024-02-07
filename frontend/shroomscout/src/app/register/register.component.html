@@ -12,7 +12,7 @@
     <mat-select [(ngModel)]="selectedEnvironment">
       <mat-option
         *ngFor="let environment of environments"
-        [value]="environments"
+        [value]="environment"
       >
         {{ environment }}
       </mat-option>
@@ -28,7 +28,12 @@
   />
 
   <!-- Register button -->
-  <button mat-raised-button color="primary" (click)="onRegisterClick()">
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="onRegisterClick()"
+    [disabled]="!name || !selectedEnvironment || !isMarkerPlaced"
+  >
     Register
   </button>
 </mat-card>

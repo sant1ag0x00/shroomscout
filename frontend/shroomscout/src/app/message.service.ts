@@ -21,14 +21,4 @@ export class MessageService {
     this.messages.unshift(message);
     this.messagesSubject$.next(this.messages);
   }
-
-  /**
-   * Returns the newest message in the messages array
-   * or an empty string if none are there.
-   *
-   * @returns The newest message in the array.
-   */
-  public getLatestMessage(): string {
-    return this.messages[0] || '';
-  }
 }
