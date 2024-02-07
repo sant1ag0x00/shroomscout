@@ -28,6 +28,7 @@ export class RegisterComponent {
     const message: string = `${this.name} stand nahe einer ${this.selectedEnvironment}.`;
     this.messageService.addMessage(message);
     this.markerService.persistMarker(this.name);
+    this.markerService.setMarkerPlacedFalse();
     this.router.navigate(['']);
   }
 }
