@@ -1,0 +1,53 @@
+\documentclass{article}
+
+\usepackage{geometry}
+\newgeometry{left=4cm, top=4cm, bottom=2cm, right=2cm}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=false,
+    linktoc=all,
+    linkcolor=blue,  
+}
+
+\usepackage{subfiles}
+
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\addbibresource{bibliography.bib}
+
+\title{Shroomscout}                                                    
+\author{Lauritz Kremzow, Tim Hofmann}
+\date{\today}
+
+\begin{document}
+
+\begin{titlepage}
+    \maketitle
+\end{titlepage}
+
+\tableofcontents
+
+\newpage
+
+\section{Einleitung}
+\subfile{kapitel/1_einleitung}
+
+\section{Anforderungsanalyse}
+\subfile{kapitel/2_anforderungsanalyse}
+
+\section{Entwurfsphase}
+\subfile{kapitel/3_entwurfsphase}
+
+\section{Eingesetzter Technologiestack}
+\subfile{kapitel/4_technologiestack}
+
+\section{Projektmanagement \& Implementierung}
+\subfile{kapitel/5_projektmanagement_implementierung}
+
+\section{Fazit}
+\subfile{kapitel/6_fazit}
+\end{document}
