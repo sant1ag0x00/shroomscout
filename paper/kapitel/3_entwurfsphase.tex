@@ -1,4 +1,5 @@
 \documentclass[../main.tex]{subfiles}
+\usepackage{graphicx}
 %~2200 Worte
 \begin{document}
 \subsection{Systemarchitektur} %Tim
@@ -21,7 +22,7 @@ Feed umfasste, und wurde später um die Eingabeseite für das Eintragen eines Pi
 erfolgte in einer gemeinsamen Brainstorming-Session, in der Ideen frei ausgetauscht und Entwürfe entwickelt und verglichen 
 wurden.
 
-[ BILD DER DRAW.IO DIAGRAMME ]
+\includegraphics{..\\abbildungen\\GUI_Entwurf_Drawio.jpg}
 
 Nicht-funktionale Anforderungen wie Einfachheit, Benutzerfreundlichkeit und Responsive Design waren hierbei maßgebliche 
 Faktoren, an denen sich der Designprozess orientierte. Die Einfachheit der Benutzeroberfläche wurde als essenziell erachtet, 
@@ -30,8 +31,8 @@ entworfen, eine direkte und unkomplizierte Interaktion möglich zu machen. Benut
 um sicherzustellen, dass Nutzer aller Erfahrungsstufen die Anwendung problemlos verwenden können. So gibt es keine überflüssigen
 Elemente und die vorhandenen sind gut sichtbar und selbsterklärend. Die Anpassung an verschiedene Endgeräte durch ein Responsive 
 Design war ein weiterer kritischer Aspekt, der ebenfalls Berücksichtigung fand. Da die Applikation höhst wahrscheinlich schon 
-während des Pilzesuchens verwendet wird, gewährleistet das Responsive Design, dass "ShroomScout" auf Desktops, Tablets und 
-Smartphones gleichermaßen funktionell und ästhetisch ansprechend ist.
+während des Pilzesuchens verwendet wird, gewährleistet das Responsive Design, dass "ShroomScout" auf Smartphones gleichermaßen 
+funktionell und ästhetisch ansprechend ist, wie auf Desktops und Tablets.
 
 \subsubsection{Frontend-Framework Entscheidung}
 Nach der Gestaltung der GUI stand letztlich noch die Auswahl eines Frontend-Frameworks an. Ein Frontend-Framework ist eine Sammlung 
@@ -45,12 +46,27 @@ gab die Vertrautheit mit Angular den Ausschlag. React, bekannt für seine Flexib
 seine Einfachheit und leichtes Lernen, sind ebenfalls hervorragende Optionen für die Entwicklung moderner Webanwendungen. Die 
 Entscheidung für Angular basierte jedoch auf der spezifischen Projekterfahrung und dem Komfortniveau der Entwickler. 
 
-Darüber hinaus überzeugt Angular durch eine komponentenbasierte Architektur und dadurch modulare Herangehensweise bei der Entwicklung.
-Jeder Baustein der Anwendung wird dabei in einer Komponente gekapselt, was Klarheit der Anwendungsstruktur fördert und die Wiederverwendung
-dieser Komponenten möglich macht. Signifikante Vorteile umfassen weiterhin die Bereitstellung umfangreicher Bibliotheken von eingebauten 
-Funktionen und Diensten, wie Formularverwaltung, Routing oder ein HTTP-Client, sowie eine verbesserte Entwicklungserfahrung durch die 
-Verwendung von TypeScript. TypeScript erweitert JavaScript um starke Typisierung und objektorientierte Programmierkonzepte wie Klassen, 
-Interfaces und Dekoratoren. Letztlich ermöglicht Angular durch seine umfangreiche Dokumentation und Community-Unterstützung eine effiziente 
-Problemlösung und Weiterentwicklung.
+Darüber hinaus lassen sich weitere Vorteile von Angular, bzw. generell eines Frontend-Frameworks finden, welche den Entwicklungsprozess
+des Frontends unterstützten:
+
+\begin{itemize}
+
+  \item 
+  Angular überzeugt durch eine komponentenbasierte Architektur und dadurch modulare Herangehensweise bei der Entwicklung.
+  Jeder Baustein der Anwendung wird dabei in einer Komponente gekapselt, was Klarheit der Anwendungsstruktur fördert und die Wiederverwendung
+  dieser Komponenten möglich macht.
+
+  \item 
+  Die Bereitstellung umfangreicher Bibliotheken von eingebauten Funktionen und Diensten, wie Formularverwaltung, Routing oder ein HTTP-Client, 
+  bietet signifikante Vorteile.
+
+  \item 
+  Die Verwendung von TypeScript, welches JavaScript um starke Typisierung und objektorientierte Programmierkonzepte wie Klassen, Interfaces und 
+  Dekoratoren erweitert, ermöglicht eine deutlich verbesserte Entwicklungserfahrung.
+  
+  \item 
+  Angular ermöglicht durch seine umfangreiche Dokumentation und Community-Unterstützung eine effiziente Problemlösung und Weiterentwicklung.
+  
+\end{itemize}
 
 \end{document}

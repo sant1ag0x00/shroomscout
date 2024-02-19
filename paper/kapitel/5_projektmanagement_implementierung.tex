@@ -50,17 +50,25 @@ vorgenommen wurden. Diese Praxis erhöht die Codequalität und erleichtert die F
 
 Die Anwendung eines Software Kanban Boards via GitHub brachte zahlreiche Vorteile für das "ShroomScout"-Projekt mit sich. Zu diesen Vorteilen zählten:
 
-Transparenz: Jedes Teammitglied hatte jederzeit einen vollständigen Überblick über den aktuellen Projektstatus, wer an welchen Aufgaben arbeitet und welche 
-Issues noch bearbeitet werden müssen. Diese Transparenz förderte das gemeinsame Verständnis und die Zusammenarbeit im Team.
+\begin{itemize}
 
-Übersichtliche Planung: Die visuelle Darstellung des Arbeitsprozesses erleichterte die Priorisierung von Aufgaben und die Planung kommender Arbeitsschritte. 
-Engpässe und ungenutzte Ressourcen konnten schnell identifiziert und adressiert werden.
+  \item \textbf{Transparenz:}
+  Jedes Teammitglied hatte jederzeit einen vollständigen Überblick über den aktuellen Projektstatus, wer an welchen Aufgaben arbeitet und welche 
+  Issues noch bearbeitet werden müssen. Diese Transparenz förderte das gemeinsame Verständnis und die Zusammenarbeit im Team.
 
-Flexibilität: Die Möglichkeit, Issues flexibel zwischen den Spalten zu verschieben, unterstützte das Team dabei, auf Veränderungen im Projektumfeld oder neue 
-Anforderungen reagieren zu können, ohne den Überblick zu verlieren.
+  \item \textbf{Übersichtliche Planung:}
+  Die visuelle Darstellung des Arbeitsprozesses erleichterte die Priorisierung von Aufgaben und die Planung kommender Arbeitsschritte. 
+  Engpässe und ungenutzte Ressourcen konnten schnell identifiziert und adressiert werden.
 
-Verbesserte Kommunikation: Durch die Zuweisung von Aufgaben und die direkte Referenzierung von Issues in Commit Messages wurde die Kommunikation innerhalb 
-des Teams sowie die Dokumentation des Entwicklungsprozesses verbessert.
+  \item \textbf{Flexibilität:}
+  Die Möglichkeit, Issues flexibel zwischen den Spalten zu verschieben, unterstützte das Team dabei, auf Veränderungen im Projektumfeld oder neue 
+  Anforderungen reagieren zu können, ohne den Überblick zu verlieren.
+
+  \item \textbf{Verbesserte Kommunikation:} 
+  Durch die Zuweisung von Aufgaben und die direkte Referenzierung von Issues in Commit Messages wurde die Kommunikation innerhalb 
+  des Teams sowie die Dokumentation des Entwicklungsprozesses verbessert.
+
+\end{itemize}
 
 Insgesamt trug die Anwendung von Software Kanban und die Nutzung eines Kanban Boards auf GitHub maßgeblich zur Effizienz, Transparenz und Flexibilität des 
 Entwicklungsprozesses bei "ShroomScout" bei und stellte eine solide Basis für eine erfolgreiche Projektumsetzung dar.
@@ -91,5 +99,102 @@ Abschluss von "ShroomScout" beitrug.
 
 \subsection{Qualitaetssicherung \& Testing} %Lauritz
 \subsubsection{Anwendung von Clean Code Prinzipien}
+Clean Code bezeichnet eine Sammlung von Prinzipien und Praktiken für die Softwareentwicklung, die darauf abzielen, den Quellcode lesbar, verständlich und wartbar 
+zu gestalten. Die Konzepte des Clean Code wurden maßgeblich von Robert C. Martin in seinem gleichnamigen Buch "Clean Code: A Handbook of Agile Software Craftsmanship" 
+popularisiert. Die Einhaltung von Clean Code Prinzipien führt zu einer höheren Codequalität, erleichtert die Zusammenarbeit in Teams und verbessert die langfristige 
+Wartbarkeit des Codes. Vorteile umfassen unter anderem die Reduzierung von Fehlern, eine effizientere Einarbeitung neuer Teammitglieder und eine gesteigerte Produktivität 
+bei der Weiterentwicklung der Software.
+
+Die grundlegenden Prinzipien des Clean Code umfassen:
+
+\begin{itemize}
+  \item \textbf{Klarheit und Verständlichkeit:} Der Code sollte so geschrieben sein, dass er auch von anderen Entwicklern leicht verstanden werden kann. Dies beinhaltet 
+  die Verwendung aussagekräftiger Namen für Variablen, Funktionen und Klassen sowie eine klare Strukturierung des Codes.
+  \item \textbf{Kurze Funktionen und Klassen:} Funktionen und Klassen sollten eine einzige Aufgabe erfüllen und möglichst kurz gehalten werden. Dies trägt zur Lesbarkeit 
+  und Wiederverwendbarkeit bei.
+  \item \textbf{Vermeidung von Code-Duplikationen (DRY - Don't Repeat Yourself):} Jedes Wissensfragment sollte eine eindeutige, unmissverständliche und autoritative 
+  Repräsentation innerhalb des Systems haben.
+  \item \textbf{Verwendung von Kommentaren:} Kommentare sollten genutzt werden, um die Intention hinter dem Code zu erklären, nicht um zu beschreiben, was der Code tut. 
+  Der Code selbst sollte durch seine Klarheit überzeugen.
+  \item \textbf{Fehlerbehandlung als separate Angelegenheit:} Fehlerbehandlung sollte nicht mit der Geschäftslogik vermischt werden, um die Lesbarkeit und Wartbarkeit zu 
+  verbessern.
+\end{itemize}
+
+Die Anwendung dieser Prinzipien lässt sich anhand folgender Code-Beispiele verdeutlichen:
+
+\textit{Beispiel für aussagekräftige Namen:}
+\begin{verbatim}
+// Schlecht
+int d; // vergangene Tage seit Erstellung
+
+// Gut
+int daysSinceCreation;
+\end{verbatim}
+
+\textit{Beispiel für kurze Funktionen:}
+\begin{verbatim}
+// Schlecht
+function processData(data) {
+    // Verarbeitung von Daten, Berechnung von Ergebnissen
+    // und Fehlerbehandlung in einer langen Funktion
+}
+
+// Gut
+function process(data) {
+    // Nur Datenverarbeitung
+}
+function calculateResults(data) {
+    // Nur Berechnung von Ergebnissen
+}
+function handleError(error) {
+    // Nur Fehlerbehandlung
+}
+\end{verbatim}
+
+Die Anwendung von Clean Code Prinzipien im "ShroomScout"-Projekt trug wesentlich zur Qualitätssicherung und zur Effizienz der Softwareentwicklung bei. Durch die 
+konsequente Umsetzung dieser Prinzipien konnte ein Code erstellt werden, der nicht nur funktional zuverlässig ist, sondern auch eine hohe Lesbarkeit und Wartbarkeit 
+aufweist.
+
 \subsubsection{Unit Tests}
+In der Softwareentwicklung ist eine strukturierte Testhierarchie essenziell, um die Qualität und Zuverlässigkeit von Softwareprodukten zu gewährleisten. Diese Hierarchie 
+beginnt typischerweise mit Unit Tests, gefolgt von Integrationstests, Systemtests bis hin zu Akzeptanztests. Jede Testebene adressiert unterschiedliche Aspekte der Software 
+und hilft dabei, Fehler und Probleme frühzeitig im Entwicklungsprozess zu identifizieren.
+
+Unit Tests stellen die Basis dieser Hierarchie dar und fokussieren sich auf die Überprüfung der kleinsten testbaren Teile einer Anwendung, in der Regel einzelne Funktionen 
+oder Methoden. Durch die Isolation spezifischer Codeabschnitte ermöglichen Unit Tests die Überprüfung der Funktionalität und Korrektheit einzelner Komponenten unabhängig 
+vom restlichen System. 
+
+Die Vorteile von Unit Tests sind vielfältig:
+\begin{itemize}
+  \item \textbf{Frühe Fehlererkennung:} Unit Tests helfen, Fehler und Probleme bereits in der Entwicklungsphase zu erkennen, bevor sie tiefgreifende Auswirkungen auf das 
+  Gesamtsystem haben.
+  \item \textbf{Dokumentation:} Sie dienen als lebendige Dokumentation des Codes, indem sie dessen erwartetes Verhalten beschreiben.
+  \item \textbf{Designverbesserung:} Die Notwendigkeit, Codeeinheiten isoliert zu testen, fördert saubere und lose gekoppelte Codearchitekturen.
+\end{itemize}
+
+Für das Projekt "ShroomScout" wurde sich ausschließlich für die Implementierung von Unit Tests entschieden. Diese Entscheidung basiert auf der Erkenntnis, dass 
+umfangreichere Testformen wie Integrationstests oder Performance Tests ohne eine Produktionsumgebung und angesichts der ständigen Weiterentwicklung des Projekts 
+nur begrenzten Mehrwert bieten würden. Unit Tests hingegen ermöglichen eine effektive und effiziente Überprüfung der Kernfunktionalitäten von "ShroomScout" und 
+unterstützen eine agile Entwicklungsmethodik.
+
+\textit{Codebeispiele zur Verdeutlichung der Zwecke von Unit Tests:}
+
+\begin{verbatim}
+// Beispiel einer Funktion, die getestet wird
+function add(a, b) {
+    return a + b;
+}
+
+// Beispiel eines Unit Tests für die Funktion add
+describe('add Function', () => {
+    it('should return the sum of two numbers', () => {
+        expect(add(2, 3)).toBe(5);
+    });
+});
+\end{verbatim}
+
+Die Anwendung von Unit Tests in "ShroomScout" spielte eine zentrale Rolle in der Qualitätssicherung, indem sie die Zuverlässigkeit einzelner Funktionen und Methoden 
+kontinuierlich überprüfte. Dies trug wesentlich zur Stabilität und Wartbarkeit des Projekts bei und stellte sicher, dass auch bei zukünftigen Erweiterungen und Anpassungen 
+die Integrität der Anwendung gewahrt bleibt.
+
 \end{document}
