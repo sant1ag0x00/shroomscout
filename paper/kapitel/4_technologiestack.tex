@@ -49,25 +49,66 @@ Darstellung und Verwaltung der Kartendaten behalten möchten.
 
 \subsection{Frontend Technologien} % Lauritz
 
-\subsubsection{Angular}
+\subsubsection{Angular & Typescript}
 
-Angular ist ein umfassendes Frontend-Framework, entwickelt und unterstützt von Google. Es ermöglicht Entwicklern die Erstellung dynamischer
-Single-Page-Applications (SPAs). Angular basiert auf TypeScript, einer von Microsoft entwickelten Programmiersprache, die eine Erweiterung
-von JavaScript darstellt. TypeScript bietet starke Typisierung und objektorientierte Programmierkonzepte, was die Entwicklung großer und
-komplexer Anwendungen erleichtert und die Codequalität verbessert. In Kombination mit HTML und CSS ermöglicht Angular die Entwicklung von
-Anwendungen, die sowohl funktional als auch ästhetisch ansprechend sind.
+Angular ist ein modernes, leistungsfähiges Frontend-Framework, das von Google entwickelt wurde und für die Erstellung dynamischer Single-Page 
+Applications (SPAs) eingesetzt wird. SPAs laden die notwendigen HTML-, JavaScript- und CSS-Codes bei der ersten Anfrage an den Server und 
+aktualisieren anschließend den Inhalt dynamisch ohne Seitenneuladung. Dieser Ansatz ermöglicht eine nahtlose Benutzererfahrung, ähnlich wie bei 
+einer Desktop-Anwendung, und bietet Vorteile wie verbesserte Performance, schnelle Reaktionszeiten und reduzierte Serveranfragen.
+
+Des weiteren basiert Angular auf TypeScript, einer typisierten Superset-Sprache von JavaScript, die in JavaScript umgewandelt wird. Sie führt 
+objektorientierte Programmierkonzepte, wie optionale statische Typisierung ein, was zu einer besseren Codequalität, einfacherer Wartbarkeit und 
+erhöhter Entwicklerproduktivität führt. TypeScript erweitert JavaScript außerdem um zusätzliche Syntax für die Definition von Typen und unterstützt 
+somit die Entwicklung großer Anwendungen, indem es frühzeitige Fehlererkennung, bessere Refactoring-Fähigkeiten und eine autokomplette Funktion bietet.
+
+Zusammenfassend ermöglicht die Kombination von Angular und TypeScript also eine stabile und effiziente Entwicklung von SPAs.
+
+\subsubsection{Komponenten \& Services}
 
 Die Architektur von Angular ist komponentenbasiert, was bedeutet, dass Anwendungen aus wiederverwendbaren Komponenten aufgebaut sind, die
 jeweils einen Teil der Benutzeroberfläche darstellen. Diese Komponenten können unabhängig voneinander entwickelt, getestet und in der
-Anwendung wiederverwendet werden, was die Entwicklungseffizienz und -geschwindigkeit erhöht.
+Anwendung wiederverwendet werden, was die Entwicklungseffizienz und -geschwindigkeit erhöht. Eine Komponente in Angular besteht aus einer 
+Klasse, die mit einem @Component-Dekorator versehen ist. Dieser Dekorator definiert zugehörige Metadaten wie das Template (HTML), Styles (CSS) 
+und weitere Selektoren, wodurch eine Komponente die Kontrolle über einen bestimmten Bereich des Bildschirms (View) in der Anwendung erhält.
 
-Eines der Hauptmerkmale von Angular ist die Fähigkeit zur Entwicklung von Single-Page-Applications (SPAs). SPAs laden bei der Initialisierung
-die gesamte Anwendung einmalig und aktualisieren dann Inhalte dynamisch ohne vollständige Seite-Neuladungen. Dies führt zu einer erheblich
-verbesserten Benutzererfahrung, da Nutzer nahtlose Übergänge zwischen verschiedenen Teilen der Anwendung erleben, was die Reaktionsgeschwindigkeit
-und das Gefühl einer Desktop-Anwendung im Webbrowser nachahmt.
+Im Gegensatz zu Komponenten fokussieren sich Services in Angular auf die Implementierung von Geschäftslogik und die Bereitstellung von Daten. 
+Sie sind unabhängige Klassen, markiert mit einem @Injectable-Dekorator, und dienen dazu, wiederverwendbare Logik oder Datenzugriffsmethoden zu 
+kapseln. Services können in Komponenten oder anderen Services injiziert werden, wodurch eine lose Kopplung und eine höhere Wiederverwendbarkeit 
+der Codebestandteile gefördert wird.
 
-\subsubsection{Komponentenhierarchie}
+Folgende Bestandteile der GUI wurden in Komponenten gekapselt:
 
-\subsubsection{Messageflow \& RxJS}
+\begin{itemize}
+
+	\item \textbf{Navigationsleiste:}
+	      Die Komponente `nav-bar' umfasst die Navigationsleiste am oberen Bildschirmrand. Sie ist immer zu sehen und bietet dem User die Möglichkeit,
+        über eine Schaltfläche zur Eingabemaske oder über das Logo zurück zur Startseite zu navigieren. Dazu wird mit Angulars 
+
+  \item \textbf{Karte:}
+        ...
+
+  \item \textbf{Live-Feed:}
+        ...
+
+  \item \textbf{Eingabemaske:}
+        ...
+
+\end{itemize}
+
+Zwischen diesen Komponenten müssen an mehreren Stellen Daten ausgetauscht werden. Dazu dienen folgende Services:
+
+\begin{itemize}
+
+	\item \textbf{Message Service:}
+	      ...
+
+  \item \textbf{Marker Service:}
+        ...
+
+\end{itemize}
+
+\subsubsection{Backend Kommunikation}
+
+\subsubsection{Responsive Design}
 
 \end{document}
