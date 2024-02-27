@@ -49,25 +49,86 @@ Darstellung und Verwaltung der Kartendaten behalten möchten.
 
 \subsection{Frontend Technologien} % Lauritz
 
-\subsubsection{Angular}
+\subsubsection{Angular & Typescript}
 
-Angular ist ein umfassendes Frontend-Framework, entwickelt und unterstützt von Google. Es ermöglicht Entwicklern die Erstellung dynamischer
-Single-Page-Applications (SPAs). Angular basiert auf TypeScript, einer von Microsoft entwickelten Programmiersprache, die eine Erweiterung
-von JavaScript darstellt. TypeScript bietet starke Typisierung und objektorientierte Programmierkonzepte, was die Entwicklung großer und
-komplexer Anwendungen erleichtert und die Codequalität verbessert. In Kombination mit HTML und CSS ermöglicht Angular die Entwicklung von
-Anwendungen, die sowohl funktional als auch ästhetisch ansprechend sind.
+Angular ist ein modernes, leistungsfähiges Frontend-Framework, das von Google entwickelt wurde und für die Erstellung dynamischer Single-Page 
+Applications (SPAs) eingesetzt wird. SPAs laden die notwendigen HTML-, JavaScript- und CSS-Codes bei der ersten Anfrage an den Server und 
+aktualisieren anschließend den Inhalt dynamisch ohne Seitenneuladung. Dieser Ansatz ermöglicht eine nahtlose Benutzererfahrung, ähnlich wie bei 
+einer Desktop-Anwendung, und bietet Vorteile wie verbesserte Performance, schnelle Reaktionszeiten und reduzierte Serveranfragen.
 
-Die Architektur von Angular ist komponentenbasiert, was bedeutet, dass Anwendungen aus wiederverwendbaren Komponenten aufgebaut sind, die
+Des weiteren basiert Angular auf TypeScript, einer typisierten Superset-Sprache von JavaScript, die in JavaScript umgewandelt wird. Sie führt 
+objektorientierte Programmierkonzepte, wie optionale statische Typisierung ein, was zu einer besseren Codequalität, einfacherer Wartbarkeit und 
+erhöhter Entwicklerproduktivität führt. TypeScript erweitert JavaScript außerdem um zusätzliche Syntax für die Definition von Typen und unterstützt 
+somit die Entwicklung großer Anwendungen, indem es frühzeitige Fehlererkennung, bessere Refactoring-Fähigkeiten und eine autokomplette Funktion bietet.
+
+\subsubsection{Komponenten \& Services}
+
+Die Architektur von Angular ist komponentenbasiert, was bedeutet, dass Anwendungen aus Komponenten aufgebaut sind, die
 jeweils einen Teil der Benutzeroberfläche darstellen. Diese Komponenten können unabhängig voneinander entwickelt, getestet und in der
-Anwendung wiederverwendet werden, was die Entwicklungseffizienz und -geschwindigkeit erhöht.
+Anwendung wiederverwendet werden, was die Entwicklungseffizienz und -geschwindigkeit erhöht. Eine Komponente in Angular besteht aus einer 
+Klasse, die mit einem @Component-Dekorator versehen ist. Dieser Dekorator definiert zugehörige Metadaten wie das Template (HTML), Styles (CSS) 
+und weitere Selektoren, wodurch eine Komponente die Kontrolle über einen bestimmten Bereich des Bildschirms in der Anwendung erhält.
 
-Eines der Hauptmerkmale von Angular ist die Fähigkeit zur Entwicklung von Single-Page-Applications (SPAs). SPAs laden bei der Initialisierung
-die gesamte Anwendung einmalig und aktualisieren dann Inhalte dynamisch ohne vollständige Seite-Neuladungen. Dies führt zu einer erheblich
-verbesserten Benutzererfahrung, da Nutzer nahtlose Übergänge zwischen verschiedenen Teilen der Anwendung erleben, was die Reaktionsgeschwindigkeit
-und das Gefühl einer Desktop-Anwendung im Webbrowser nachahmt.
+Im Gegensatz zu Komponenten fokussieren sich Services in Angular auf die Implementierung von Geschäftslogik und die Bereitstellung von Daten. 
+Sie sind unabhängige Klassen, markiert mit einem @Injectable-Dekorator, und dienen dazu, wiederverwendbare Logik oder Datenzugriffsmethoden zu 
+kapseln. Services können in Komponenten oder anderen Services injiziert werden, wodurch eine lose Kopplung und eine höhere Wiederverwendbarkeit 
+der Codebestandteile gefördert wird.
 
-\subsubsection{Komponentenhierarchie}
+Folgende Bestandteile der GUI wurden in Komponenten gekapselt:
 
-\subsubsection{Messageflow \& RxJS}
+\begin{itemize}
+
+	\item \textbf{Navigationsleiste:}
+	      Die Komponente `nav-bar' umfasst die Navigationsleiste am oberen Bildschirmrand. Sie ist immer zu sehen und bietet dem User die Möglichkeit,
+        über eine Schaltfläche zur Eingabemaske oder über das Logo zurück zur Startseite zu navigieren. Dazu wird lediglich zur URL `.../register' für die 
+        Eingabemaske und zurück zur Root-URL für den Live-Feed navigiert. Im Routing Modul (`app-routing.module.ts') sind für diese Routen dann die
+        zugehörigen Komponenten deklariert, welche in der App Komponente (`app.component.ts') an Stelle des router-outlet-Tags angezeigt werden.
+        Dabei wird auch klar, dass die Karte immer zu sehen ist und lediglich der Teil daneben durch die entsprechende Komponente je nach der Route 
+        befüllt wird. 
+
+  \item \textbf{Karte:}
+        In der Komponente `map' wird die Karte wird mithilfe des `leaflet'-Pakets (siehe `package.json') mit mit sogenannten `tiles', also kleinen 
+        Teilen der Weltkarte, befüllt. Diese werden von der OpenStreetMap Tile-Provider URL geladen. Außerdem sorgt die Komponente dafür, dass die Karte 
+        anklickbar wird, sollte die URL auf `/register' enden, sprich wenn die Eingabemaske angezeigt wird. Klick-Events durch den User werden vom Marker 
+        Service verwaltet.
+
+  \item \textbf{Live-Feed:}
+        Der Live-Feed besteht aus einer Angular Material Card (`<mat-card>'). Angular Material ist eine Bibliothek an vorgefertigten GUI-Komponenten,
+        welche bereits ansprechend aussehen. Diese wurden überall, wo es möglich war, verwendet, um sich nicht mehr um das CSS-Styling kümmern zu müssen.
+        In der Komponente werden Nachrichten dargestellt, welche sie vom Message Service erhält. Das tut sie, indem sie mithilfe der async-Pipe (`| async') 
+        das Nachrichten-Observable abonniert und somit über Änderungen automatisch informiert wird. 
+
+  \item \textbf{Eingabemaske:}
+        Die Eingabemaske besteht ebenfalls aus Angular Material Komponenten für die entsprechenden Eingabefelder und das Drop-Down-Menü. Außerdem wird
+        hier beim Eintragen eines Pilzes zum Einen der Marker Service zum persistieren des Markers und der Message Service zum Absenden einer neuen 
+        Nachricht an den Live-Feed genutzt.
+
+\end{itemize}
+
+Zwischen diesen Komponenten müssen an mehreren Stellen Daten ausgetauscht werden. Dazu dienen folgende Services:
+
+\begin{itemize}
+
+	\item \textbf{Message Service:}
+	      Der Message Service ist für die im Live-Feed angezeigten Nachrichten zuständig. Somit enthält er eine Liste aller Nachrichten, sowie eine Methode,
+        welche zum Hinzufügen einer neuen Nachricht dient. Die aktuellen Nachrichten werden dann über einen sogennanten `Observable Stream', also einem
+        sich automatisch aktualisierenden Datenfluss bereitgestellt. Die Eingabemaske sendet eine neue Nachricht an das Observable und der Live-Feed
+        abonniert dieses Observable, wodurch es die neue Nachrichtenliste automatisch erhält, sobald diese sich ändert. Dadurch wird eine effektive 
+        Brücke zwischen den beiden Komponenten geschlagen.
+
+  \item \textbf{Marker Service:}
+        Der Marker Service dient der Verwaltung der Pilzfundort-Markierungen auf der Karte. Er erhält die angezeigte Karteninstanz und kann dadurch auf 
+        dieser temporäre Markierungen setzen. Außerdem enthält er Methoden zum Persistieren eines Markers, wenn der User einen Pilz einträgt. Somit ist 
+        auch dieser Service essentiell, um das Zusammenspiel zwischen der Karten- und Eingabemaskenkomponente zu ermöglichen.
+
+\end{itemize}
+
+\subsubsection{Backend Kommunikation}  % Tim
+
+\subsubsection{Responsive Design}
+
+Die Anpassung der HTML Templates an kleinere Bildschirmgrößen wurde ausschließlich in den CSS-Dateien über die `@media'-Query geregelt. Dort können für
+selbst festgelegte Bildschirmbreiten und -höhen andere CSS-Styles festgelegt werden, als normalerweise gelten. Somit wurden durch wiederholtes Anpassen
+und Ausprobieren alle Teile der Applikation so gestaltet, dass sie bei jeder Bildschirmgröße sichtbar und sinnvoll platziert sind.
 
 \end{document}
