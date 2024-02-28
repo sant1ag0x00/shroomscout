@@ -15,12 +15,21 @@
 \subsubsection{Datenmodell}
 
 \subsubsection{Datenbanksystemauswahl}
+Für unser Datenbanksystem haben wir uns für SQLite entschieden, diese Entscheigung basiert darauf, dass es die Kollaboration
+Git erheblich erleichtert. SQLite Datenbaken sind legidlich einzelne Dateien und können einfach in ein Git Repository aufgenommen werden,
+wodurch als Kollaborierenden den gleichen Stand haben, ohne das die Notwendigkeit für weitere Infrastruktur besteht. 
+Wir haben uns gegen größere, featurereichere Datenbanksysteme wie PostgreSQL oder MySQL entschieden, da diese auf einem externen Server laufen müssen,
+was bei dem aktuellen Stadium und der Größe des Projekts nur zusätzlichen Aufwand bedeutet hätte.
+Für einen potentiellen produktiven Einsatz der Software mit vielen Benutzern wären diese Lösungen jedoch zu präferieren, da sie besser skalieren, mehr Features
+und bessere Performance bieten.
 
 \subsection{Backend-Design} % Tim
 
-\subsubsection{Notwendige API-Abfragen}
+%\subsubsection{Notwendige API-Abfragen}
 
 \subsubsection{Backend-Framework Entscheidung}
+
+Im Backend nutzen wir die Frameworks FastAPI und Uvicorn.
 
 \subsection{GUI-Design \& Frontend-Frameworks} % Lauritz
 
