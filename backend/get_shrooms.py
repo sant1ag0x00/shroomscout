@@ -9,7 +9,7 @@ def get_shrooms():
     for row in rows:
         shroomlist.append(list(row)) 
     con.close() 
-    return shroomlist
+    return {"data": shroomlist}
 
 
 if __name__ == "__main__":
