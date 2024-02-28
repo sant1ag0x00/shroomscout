@@ -6,9 +6,11 @@ def get_shrooms():
     cur = con.cursor()
     cur.execute("SELECT * FROM mushrooms")
     rows = cur.fetchall()
+    columns = [column[0] for column in cur.description]
     for row in rows:
-        shroomlist.append(list(row)) 
-    con.close() 
+        row_dict = dict(zip(columns, row))
+        shroomlist.append(row_dict)
+    con.close()
     return {"data": shroomlist}
 
 
