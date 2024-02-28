@@ -1,6 +1,6 @@
 import sqlite3
 
-def getShrooms():
+def get_shrooms():
     shroomlist = []
     con = sqlite3.connect("../database/shroomscout")
     cur = con.cursor()
@@ -8,10 +8,9 @@ def getShrooms():
     rows = cur.fetchall()
     for row in rows:
         shroomlist.append(list(row)) 
-    print(shroomlist)
     con.close() 
     return shroomlist
 
 
 if __name__ == "__main__":
-    print(getShrooms())
+    print(get_shrooms())
